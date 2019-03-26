@@ -6,7 +6,7 @@
 #
 
 #
-# Copyright (c) 2019, Joyent, Inc.
+# Copyright 2019, Joyent, Inc.
 #
 
 # XXX - TODO
@@ -1322,6 +1322,13 @@ echo "compute_node_ntp_hosts=$admin_ip" >>$tmp_config
 echo >>$tmp_config
 
 echo "hostname=$hostname" >> $tmp_config
+echo >>$tmp_config
+
+#
+# By default, SmartOS has hyper-threading disabled. This can be re-enabled later
+# by modifying this parameter.
+#
+echo "ht_enabled=false" >>$tmp_config
 echo >>$tmp_config
 
 create_zpools "$DISK_LAYOUT"
